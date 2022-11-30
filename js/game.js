@@ -24,11 +24,26 @@ const createElement = (tag, className) => {
 let firstCard = "";
 let secondCard = "";
 
+const checkEndGame = () => {
+  const allCardsDisable = document.querySelectorAll(".disabled-card");
+
+  if (allCardsDisable.length === 24) {
+    alert("parabéns");
+  }
+};
+
 const checkCards = () => {
   const firstCharacter = firstCard.getAttribute("character-data");
   const secondCharacter = secondCard.getAttribute("character-data");
 
   if (firstCharacter === secondCharacter) {
+    firstCard.firstChild.classList.add("disabled-card");
+    secondCard.firstChild.classList.add("disabled-card");
+
+    firstCard = "";
+    secondCard = "";
+
+    checkEndGame();
   } else {
     setTimeout(() => {
       firstCard.classList.remove("reveal-card");

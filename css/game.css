@@ -25,6 +25,7 @@
   background-position: center;
   border-radius: 6px;
   border: 2px solid rgb(17, 17, 46);
+  transition: 400ms;
 }
 
 .front {
@@ -40,6 +41,6 @@
   transform: rotateY(180deg);
 }
 
-/* .card:hover {
-  transform: rotateY(180deg);
-} */
+.disabled-card {
+  opacity: 0.5;
+}
