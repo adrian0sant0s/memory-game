@@ -21,8 +21,39 @@ const createElement = (tag, className) => {
   return element;
 };
 
+let firstCard = "";
+let secondCard = "";
+
+const checkCards = () => {
+  const firstCharacter = firstCard.getAttribute("character-data");
+  const secondCharacter = secondCard.getAttribute("character-data");
+
+  if (firstCharacter === secondCharacter) {
+  } else {
+    setTimeout(() => {
+      firstCard.classList.remove("reveal-card");
+      secondCard.classList.remove("reveal-card");
+
+      firstCard = "";
+      secondCard = "";
+    }, 500);
+  }
+};
+
 const revealCard = ({ target }) => {
-  target.parentNode.classList.add("reveal-card");
+  if (target.parentNode.className.includes("reveal-card")) {
+    return;
+  }
+
+  if (firstCard === "") {
+    target.parentNode.classList.add("reveal-card");
+    firstCard = target.parentNode;
+  } else if (secondCard === "") {
+    target.parentNode.classList.add("reveal-card");
+    secondCard = target.parentNode;
+
+    checkCards();
+  }
 };
 
 const createCard = (picture) => {
@@ -36,6 +67,8 @@ const createCard = (picture) => {
   card.appendChild(back);
 
   card.addEventListener("click", revealCard);
+
+  card.setAttribute("character-data", picture);
 
   return card;
 };
