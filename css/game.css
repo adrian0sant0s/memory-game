@@ -68,3 +68,15 @@ header {
 .disabled-card {
   opacity: 0.5;
 }
+
+.button-reset {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #eee;
+  cursor: pointer;
+}
+
+.button-reset:hover {
+  font-size: 1.8rem;
+}

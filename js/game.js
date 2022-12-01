@@ -1,6 +1,7 @@
 const containerGrid = document.querySelector(".container-grid");
 const namePlayer = document.querySelector(".player");
 const time = document.querySelector(".time");
+const button = document.querySelector(".button-reset");
 
 const pictures = [
   "bruine",
@@ -32,7 +33,7 @@ const checkEndGame = () => {
   if (allCardsDisable.length === 24) {
     clearInterval(this.loop);
     alert(
-      `parabens ${namePlayer.innerHTML}! Seu tempo foi de ${time.innerHTML}`
+      `parabéns ${namePlayer.innerHTML}! Seu tempo foi de ${time.innerHTML}`
     );
   }
 };
@@ -113,6 +114,12 @@ const startTime = () => {
 
 window.onload = () => {
   namePlayer.innerHTML = localStorage.getItem("player");
-  startTime();
+  // startTime();
   loadGame();
 };
+
+const resetGame = () => {
+  window.location.reload();
+};
+
+button.addEventListener("click", resetGame);
