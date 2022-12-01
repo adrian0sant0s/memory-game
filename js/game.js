@@ -1,4 +1,6 @@
 const containerGrid = document.querySelector(".container-grid");
+const namePlayer = document.querySelector(".player");
+const time = document.querySelector(".time");
 
 const pictures = [
   "bruine",
@@ -28,7 +30,10 @@ const checkEndGame = () => {
   const allCardsDisable = document.querySelectorAll(".disabled-card");
 
   if (allCardsDisable.length === 24) {
-    alert("parabéns");
+    clearInterval(this.loop);
+    alert(
+      `parabens ${namePlayer.innerHTML}! Seu tempo foi de ${time.innerHTML}`
+    );
   }
 };
 
@@ -99,4 +104,15 @@ const loadGame = () => {
   });
 };
 
-loadGame();
+const startTime = () => {
+  this.loop = setInterval(() => {
+    const currentTime = +time.innerHTML;
+    time.innerHTML = currentTime + 1;
+  }, 1000);
+};
+
+window.onload = () => {
+  namePlayer.innerHTML = localStorage.getItem("player");
+  startTime();
+  loadGame();
+};
