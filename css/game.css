@@ -1,3 +1,27 @@
+main {
+  background-image: url(../assets/estadioBg.jpg);
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px 30px;
+}
+
+header {
+  background-color: rgba(80, 2, 21, 0.75);
+  color: #eee;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.8rem;
+}
+
 .container-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
