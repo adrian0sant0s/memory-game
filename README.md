@@ -11,4 +11,4 @@
 
   <img src="./assets/prtscTela.png" alt="printscreen da aplicação">
 
-Link da aplicação:
+Link da aplicação: https://adrianosantos-memorygame.netlify.app/
